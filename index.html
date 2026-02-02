@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Nayelly ✨ - ¡Último Año!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, #e3f2fd, #f3e5f5);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .carta-container {
+            max-width: 700px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .sobre-especial {
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 45px 35px;
+            box-shadow: 0 15px 35px rgba(103, 58, 183, 0.15);
+            position: relative;
+            border: 3px solid #7b1fa2;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        
+        .sobre-especial::before {
+            content: "🎓";
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.5rem;
+            background: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid #7b1fa2;
+            z-index: 2;
+        }
+        
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: #7b1fa2;
+            margin-bottom: 5px;
+            text-shadow: 1px 1px 3px rgba(123, 31, 162, 0.1);
+        }
+        
+        .subtitulo {
+            color: #5e35b1;
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+        
+        .corazon {
+            font-size: 2.8rem;
+            margin: 20px 0;
+            color: #e91e63;
+            animation: palpitar 2s infinite;
+            display: inline-block;
+        }
+        
+        .carta-texto {
+            background-color: #f9f7fd;
+            border-radius: 15px;
+            padding: 35px;
+            text-align: left;
+            line-height: 1.8;
+            font-size: 1.15rem;
+            border-left: 5px solid #7b1fa2;
+            margin-top: 20px;
+            position: relative;
+        }
+        
+        .saludo {
+            font-weight: 700;
+            color: #7b1fa2;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        
+        .destacado {
+            color: #e91e63;
+            font-weight: 700;
+            background-color: rgba(233, 30, 99, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        
+        .advertencia {
+            background-color: #fff8e1;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #ff9800;
+            font-style: italic;
+        }
+        
+        .emoji-especial {
+            font-size: 1.5rem;
+            vertical-align: middle;
+            margin: 0 5px;
+        }
+        
+        .firma {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: #7b1fa2;
+            margin-top: 30px;
+            text-align: right;
+            font-weight: 700;
+        }
+        
+        .elementos-flotantes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .elemento {
+            position: absolute;
+            font-size: 1.8rem;
+            opacity: 0.3;
+            animation: flotar 9s infinite ease-in-out;
+        }
+        
+        .boton-motivador {
+            background: linear-gradient(45deg, #7b1fa2, #e91e63);
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 25px;
+            transition: all 0.3s;
+            box-shadow: 0 6px 20px rgba(123, 31, 162, 0.3);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .boton-motivador:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(123, 31, 162, 0.4);
+        }
+        
+        .mensaje-extra {
+            display: none;
+            background-color: #f3e5f5;
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 25px;
+            text-align: center;
+            border: 2px solid #ba68c8;
+            font-size: 1.1rem;
+        }
+        
+        .consejo-final {
+            background-color: #e8f5e9;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+            text-align: center;
+            font-weight: 600;
+            color: #2e7d32;
+            border: 2px dashed #4caf50;
+        }
+        
+        @keyframes palpitar {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        @keyframes flotar {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-25px) rotate(10deg); opacity: 0.5; }
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .carta-texto { padding: 25px; font-size: 1.05rem; }
+            .sobre-especial { padding: 35px 25px; }
+            .subtitulo { font-size: 1.1rem; }
+        }
+        
+        @media (max-width: 480px) {
+            h1 { font-size: 2.2rem; }
+            .carta-texto { padding: 20px; }
+            .firma { font-size: 1.8rem; }
+            .corazon { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="carta-container">
+        <div class="sobre-especial">
+            <h1>Para Nayelly, Mi Niña ✨</h1>
+            <p class="subtitulo">¡Tu último año en media superior!</p>
+            
+            <div class="corazon">💜</div>
+            
+            <div class="carta-texto">
+                <p class="saludo">Querida Nayelly,</p>
+                
+                <p>Mañana comienza tu <span class="destacado">último año en media superior</span>, y solo quiero desearte lo mejor en esta etapa tan importante. Mañana ya podrás verlo todo: ver a tus amistades que tanto <span class="destacado">amas</span> y, sobre todo, <span class="destacado">correr en la recta final</span> <span class="emoji-especial">🏁</span>.</p>
+                
+                <p>Te deseo que este inicio escolar esté lleno de <span class="destacado">alegrías</span>, <span class="destacado">aprendizaje</span> en tu área técnica y que logres <span class="destacado">desempeñarte super bien</span> en todo lo que te propongas <span class="emoji-especial">📚</span>.</p>
+                
+                <div class="advertencia">
+                    <p><span class="emoji-especial">⚠️</span> Te recuerdo lo de los deméritos. Sí, lo sé, no es que te portes mal, pero solo te lo recuerdo. Creo que para salir no dejarán excepto que tu encargado firme <span class="emoji-especial">✍️</span>.</p>
+                </div>
+                
+                <p>Por lo demás, <span class="destacado">te deseo lo mejor</span>. Espero de todo corazón que logres <span class="destacado">salir con todo</span> este año, que cada día te acerque más a tus metas y que al final del camino puedas mirar atrás con orgullo por todo lo que lograste <span class="emoji-especial">🌟</span>.</p>
+                
+                <div class="consejo-final">
+                    <p>¡Tú puedes, mi niña! Este es tu año, ¡a darle con todo! <span class="emoji-especial">💪</span></p>
+                </div>
+                
+                <div class="firma">
+                    Con todo mi cariño 💖
+                </div>
+            </div>
+            
+            <button class="boton-motivador" id="btnMotivacion">
+                🎯 ¡Mensaje de motivación extra!
+            </button>
+            
+            <div class="mensaje-extra" id="mensajeExtra">
+                <p>Nayelly, recuerda que eres más fuerte de lo que crees y más capaz de lo que imaginas. Este último año es tu oportunidad de brillar y demostrar todo tu potencial. ¡Confío plenamente en ti! 💫</p>
+                <p style="margin-top: 15px; font-weight: 600;">¡Vamos, que tú puedes con todo lo que viene! 🚀</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="elementos-flotantes" id="elementosFlotantes"></div>
+    
+    <script>
+        // Crear elementos flotantes con temática escolar
+        const contenedor = document.getElementById('elementosFlotantes');
+        const simbolos = ['📚', '🎓', '✏️', '📝', '🏆', '⭐', '💜', '🎯', '🚀', '🌈'];
+        
+        for (let i = 0; i < 15; i++) {
+            const elemento = document.createElement('div');
+            elemento.classList.add('elemento');
+            elemento.innerHTML = simbolos[Math.floor(Math.random() * simbolos.length)];
+            
+            const left = Math.random() * 100;
+            const top = Math.random() * 100;
+            const size = Math.random() * 1.2 + 1.5;
+            const delay = Math.random() * 6;
+            const duracion = Math.random() * 4 + 8;
+            
+            elemento.style.left = `${left}%`;
+            elemento.style.top = `${top}%`;
+            elemento.style.fontSize = `${size}rem`;
+            elemento.style.animationDelay = `${delay}s`;
+            elemento.style.animationDuration = `${duracion}s`;
+            
+            // Color aleatorio para algunos elementos
+            const colores = ['#7b1fa2', '#e91e63', '#5e35b1', '#ba68c8'];
+            if (Math.random() > 0.6) {
+                elemento.style.color = colores[Math.floor(Math.random() * colores.length)];
+            }
+            
+            contenedor.appendChild(elemento);
+        }
+        
+        // Botón de motivación extra
+        const btnMotivacion = document.getElementById('btnMotivacion');
+        const mensajeExtra = document.getElementById('mensajeExtra');
+        
+        btnMotivacion.addEventListener('click', function() {
+            if (mensajeExtra.style.display === 'block') {
+                mensajeExtra.style.display = 'none';
+                btnMotivacion.innerHTML = '🎯 ¡Mensaje de motivación extra!';
+            } else {
+                mensajeExtra.style.display = 'block';
+                btnMotivacion.innerHTML = '✨ ¡Gracias por la motivación!';
+                
+                // Efecto de aparición
+                mensajeExtra.style.opacity = '0';
+                mensajeExtra.style.transform = 'translateY(15px)';
+                
+                let opacidad = 0;
+                const aparecer = setInterval(() => {
+                    opacidad += 0.05;
+                    mensajeExtra.style.opacity = opacidad;
+                    mensajeExtra.style.transform = `translateY(${15 - opacidad * 15}px)`;
+                    
+                    if (opacidad >= 1) {
+                        clearInterval(aparecer);
+                    }
+                }, 20);
+                
+                // Crear elementos flotantes extra
+                crearElementosExtra(3);
+            }
+        });
+        
+        function crearElementosExtra(cantidad) {
+            for (let i = 0; i < cantidad; i++) {
+                const elemento = document.createElement('div');
+                elemento.classList.add('elemento');
+                elemento.innerHTML = '⭐';
+                
+                const left = 40 + Math.random() * 20;
+                const top = 80;
+                const size = Math.random() * 1 + 1.2;
+                const duracion = Math.random() * 3 + 5;
+                
+                elemento.style.left = `${left}%`;
+                elemento.style.top = `${top}%`;
+                elemento.style.fontSize = `${size}rem`;
+                elemento.style.animationDuration = `${duracion}s`;
+                elemento.style.color = '#e91e63';
+                elemento.style.opacity = '0.6';
+                elemento.style.zIndex = '2';
+                
+                contenedor.appendChild(elemento);
+                
+                setTimeout(() => {
+                    elemento.remove();
+                }, 6000);
+            }
+        }
+        
+        // Efecto de escritura en el título
+        const titulo = document.querySelector('h1');
+        const tituloOriginal = titulo.textContent;
+        titulo.textContent = '';
+        
+        let i = 0;
+        function maquinaEscribir() {
+            if (i < tituloOriginal.length) {
+                titulo.textContent += tituloOriginal.charAt(i);
+                i++;
+                setTimeout(maquinaEscribir, 100);
+            }
+        }
+        
+        // Iniciar efecto de escritura
+        setTimeout(maquinaEscribir, 500);
+        
+        // Efecto de cambio de color sutil en el corazón
+        const corazon = document.querySelector('.corazon');
+        const coloresCorazon = ['#e91e63', '#7b1fa2', '#5e35b1', '#ba68c8'];
+        let colorIndex = 0;
+        
+        setInterval(() => {
+            corazon.style.color = coloresCorazon[colorIndex];
+            colorIndex = (colorIndex + 1) % coloresCorazon.length;
+        }, 2000);
+        
+        // Resaltar palabras destacadas gradualmente
+        setTimeout(() => {
+            const palabrasDestacadas = document.querySelectorAll('.destacado');
+            palabrasDestacadas.forEach((palabra, index) => {
+                setTimeout(() => {
+                    palabra.style.transition = 'all 0.5s';
+                    palabra.style.backgroundColor = 'rgba(233, 30, 99, 0.2)';
+                    palabra.style.boxShadow = '0 0 8px rgba(233, 30, 99, 0.3)';
+                    
+                    setTimeout(() => {
+                        palabra.style.backgroundColor = 'rgba(233, 30, 99, 0.1)';
+                        palabra.style.boxShadow = 'none';
+                    }, 800);
+                }, 500 + (index * 300));
+            });
+        }, 1500);
+    </script>
+</body>
+</html>
